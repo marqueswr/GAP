@@ -29,7 +29,7 @@
                 <a class="nav-link" href="{{ route('documento.index') }}">Tipos de Documentação</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('arquivo.create') }}">Fotos dos Documentos</a>
+                <a class="nav-link" href="{{ route('arquivo.index') }}">Fotos dos Documentos</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

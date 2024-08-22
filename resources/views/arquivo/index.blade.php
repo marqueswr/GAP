@@ -8,21 +8,51 @@
       <h5 class="card-title" style="color:rgb(12, 43, 197)">LISTA DE IMAGENS CADASTRADAS</h5>
       <h6 class="card-subtitle mb-2 text-muted">
       </br>
-        {{-- <div class="navbar-search-block">
-            <form class="form-inline" action="{{ route('arquivo.index') }}">
-              <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" id="parametro" data-toggle="tooltip" data-placement="top" title="pressione o botão ou ENTER para pesquisar"  name="parametro" placeholder="digite algo para pesquisar ou deixe em branco para mostrar tudo" value="{{ $parametro }}" >
-                <div class="input-group-append">
-                  <button class="btn btn-success" style="margin-left: 10px" type="submit" data-toggle="tooltip" data-placement="top" title="pesquisar palavra informada">
-                    <i class="fa fa-search"></i>
-                  </button>
-                  <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="inserir novo aluno" style="margin-left: 2px"  href="{{ route('aluno.create') }}">
-                    +
-                  </a>
-                </div>
-              </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+            <form  action="{{ route('arquivo.index') }}">
+            <input class="form-control" type="text"
+            name="parametro"
+            id="parametro"
+            placeholder="informe o nome"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="parte do nome do aluno" >
+            </div>
+            <div class="col-md-2">
+            <button class="btn btn-dark"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="pesquisar"
+            style="margin-left: 2px"
+            type="submit">
+                Pesquisar
+              </a>
             </form>
-          </div> --}}
+        </div>
+
+        <div class="col-md-4">
+            <select  name="aluno_id" id="aluno_id" class="form-control" required>
+                <option value="">-- Selecione o aluno --</option>
+                 @foreach ($alunos as $item)
+                <option value="{{ $item->id }}">
+                   {{$item->nome}}
+                </option>
+                 @endforeach
+            </select>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="pesquisar" style="margin-left: 2px"  href="{{ route('arquivo.index') }}">
+                Selecionar
+              </a>
+              <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="inserir nova imagem de documento" style="margin-left: 2px"  href="{{ route('arquivo.create') }}">
+                <i class="fa fa-plus"></i>
+              </a>
+        </div>
+      </div>
+
       </h6>
       <p class="card-text">
         <div>
@@ -38,25 +68,34 @@
                 <tbody>
                     @foreach ($arquivos as $item )
                     <tr>
-                        <td style="width: 100px"><img src="storage/{{ $item->foto }}" style="width:70px;height=70;border: 1px gray;padding:2px;border-width: 2px;"></td>
+                        <td style="width: 100px"><img src="storage/{{ $item->foto }}" style="width:70px;height=70;padding:2px;border-width: 2px;"></td>
 
-                        <td>{{ $item->documento->descricao }} / {{ $item->aluno->nome }}</td>
+                        {{-- <td>{{ $item->documento->descricao }} / {{ $item->aluno->nome }}</td> --}}
+                        <td>{{ $item->nome }} / {{ $item->descricao }}</td>
 
                         <td class="float-sm-right">
 
                             <form id="formExcluir{{ $item->id }}" action="{{ route('arquivo.destroy',['arquivo'=> $item-> id]) }}" method="POST">
                              @csrf
                              @method('delete')
-                               <a  class="btn btn-outline-primary float-end ms-2 px-3" href="{{ route('arquivo.show',['id'=> $item->id]) }}" ><i class="fa fa-eye"></i></a>
-                               <a  type="submit" onclick="confirmarExclusao(event, {{ $item->id }})" class="btn btn-outline-danger float-end ms-2 px-3" href="{{ route('arquivo.destroy',['arquivo'=>$item->id]) }}" > <i class="fa fa-trash"></i></a></td>
-                            </form>
+                               <a  class="btn btn-outline-primary float-end ms-2 px-3" href="{{ route('arquivo.show',['arquivo'=> $item->id]) }}" ><i class="fa fa-eye"></i></a>
+                                   <a  type="submit" onclick="confirmarExclusao(event, {{ $item->id }})" class="btn btn-outline-danger float-end ms-2 px-3" href="{{ route('arquivo.destroy',['arquivo'=>$item->id]) }}" > <i class="fa fa-trash"></i></a></td>
+
+
+                              </form>
+
                             <x-alert/>
                      </td>
+
+
+
+
+
                       </tr>
                     @endforeach
                 </tbody>
               </table>
-              {{-- {{ $arquivos->onEachSide(0)->links() }} --}}
+              {{ $arquivos->onEachSide(0)->links() }}
         </div>
       </p>
 

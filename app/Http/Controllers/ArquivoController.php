@@ -6,31 +6,33 @@ use Exception;
 use App\Models\Aluno;
 use App\Models\Arquivo;
 use App\Models\Documento;
-
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use function PHPUnit\Framework\isNull;
 use Illuminate\Support\Facades\Storage;
 
 class ArquivoController extends Controller
 {
 
-    public function index(Aluno $request)
+    public function index(Request $request)
     {
+        $parametro = $request->parametro;
 
-        // $arquivos = Arquivo::when ($request->has('parametro'), function($whenQuery) use ($request){
-        //     $whenQuery->where('nome', 'like','%' . $request->parametro . '%');
-        // })
-        // ->orderByDesc('nome')->paginate(10);
+        $alunos = Aluno::when ($request->has('parametro'), function($whenQuery) use ($request){
+            $whenQuery->where('nome', 'like','%' . $request->parametro . '%');
+        })
+        ->orderBy('nome')->get();
 
-        // return view('arquivo.index', [
-        //     'arquivos'=> $arquivos,
-        //     'parametro'=> $request->parametro,
-        // ]);
+        $arquivos = DB::table('arquivos')
+    ->join('alunos', 'arquivos.aluno_id', '=', 'alunos.id')
+    ->join('documentos', 'arquivos.documento_id', '=', 'documentos.id')
+    ->paginate(2);
 
-        $arquivos = Arquivo::all();
-        return view('arquivo.index',compact('arquivos'));
+        // $arquivos = Arquivo::all();
+        return view('arquivo.index',compact('arquivos','alunos','parametro'));
     }
-
 
     public function create(Request $request)
     {
