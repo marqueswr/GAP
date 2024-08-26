@@ -23,7 +23,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Sistemas Integrados</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('aluno.index') }}">Alunos</a>
+                <a class="nav-link" href="{{ route('aluno.index') }}">Pessoas</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('documento.index') }}">Tipos de Documentação</a>
@@ -37,7 +37,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Documentos existentes</a></li>
-                  <li><a class="dropdown-item" href="#">Documentos do aluno</a></li>
+                  <li><a class="dropdown-item" href="#">Documentos da pessoa</a></li>
                   <li><a class="dropdown-item" href="#">Fotos dos documentos por RA</a></li>
                   <li><a class="dropdown-item" href="#">Fotos dos documentos por Nome</a></li>
                 </ul>

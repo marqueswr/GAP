@@ -5,7 +5,7 @@
 <div class="row">
     <div class="card">
     <div class="card-body">
-      <h5 class="card-title" style="color:rgb(12, 43, 197)">LISTA DE ALUNOS CADASTRADOS</h5>
+      <h5 class="card-title" style="color:rgb(12, 43, 197)">LISTA DE PESSOAS CADASTRADAS</h5>
       <h6 class="card-subtitle mb-2 text-muted">
       </br>
         <div class="navbar-search-block">
@@ -38,7 +38,7 @@
                 <tbody>
                     @foreach ($alunos as $item )
                     <tr>
-                        <td><img src="storage/{{ $item->foto }}" style="width:70px;height=70;border-radius:80%;border: 1px dotted gray;padding:2px;border-width: 2px;"></td>
+                        <td><img src="storage/{{ $item->foto }}" style="width:50px;height=50;border-radius:100%;border: 1px dotted gray;padding:2px;border-width: 2px;"></td>
                         <td><b>{{ $item->id }}</b></td>
                         <td>{{ $item->codigo }}</td>
                         <td>{{ $item->nome }}</td>

@@ -15,7 +15,7 @@ class DocumentoController extends Controller
         $documentos = Documento::when ($request->has('parametro'), function($whenQuery) use ($request){
             $whenQuery->where('descricao', 'like','%' . $request->parametro . '%');
         })
-        ->orderBy('descricao')->paginate(10);
+        ->orderBy('descricao')->paginate(15);
 
         return view('documento.index', [
             'documentos'=> $documentos,

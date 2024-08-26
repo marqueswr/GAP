@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('aluno_id')->constrained()->onDelete('cascade');
             $table->foreignId('documento_id')->constrained()->OnDelete('cascade');
             $table->string('foto',250);
+            $table->string('observacao',250);
             $table->timestamps();
         });
     }

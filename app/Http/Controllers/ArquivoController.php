@@ -6,12 +6,10 @@ use Exception;
 use App\Models\Aluno;
 use App\Models\Arquivo;
 use App\Models\Documento;
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use function PHPUnit\Framework\isNull;
 use Illuminate\Support\Facades\Storage;
+
 
 class ArquivoController extends Controller
 {
@@ -26,13 +24,30 @@ class ArquivoController extends Controller
         ->orderBy('nome')->get();
 
         $arquivos = DB::table('arquivos')
-    ->join('alunos', 'arquivos.aluno_id', '=', 'alunos.id')
-    ->join('documentos', 'arquivos.documento_id', '=', 'documentos.id')
-    ->paginate(2);
+        ->join('alunos', 'arquivos.aluno_id', '=', 'alunos.id')
+        ->join('documentos', 'arquivos.documento_id', '=', 'documentos.id')
+        ->select('arquivos.*','alunos.nome','documentos.descricao')
+        ->paginate(10);
 
-        // $arquivos = Arquivo::all();
         return view('arquivo.index',compact('arquivos','alunos','parametro'));
     }
+
+    public function filtrado(Request $request)
+    {
+        $parametro = $request->aluno_id;
+
+        $arquivos = DB::table('arquivos')
+        ->join('alunos', 'arquivos.aluno_id', '=', 'alunos.id')
+        ->join('documentos', 'arquivos.documento_id', '=', 'documentos.id')
+        ->select('arquivos.*','alunos.nome','documentos.descricao')
+        ->where('arquivos.aluno_id','=',$request->aluno_id)
+        ->paginate(10);
+
+         $alunos = Aluno::all();
+
+        return view('arquivo.index',compact('arquivos','alunos','parametro'));
+    }
+
 
     public function create(Request $request)
     {
@@ -48,7 +63,11 @@ class ArquivoController extends Controller
             $alunos = [];
         }
 
-        $documentos = Documento::all();
+        $documentos = DB::table('documentos')
+        ->orderBy('descricao')
+        ->get();
+
+        // $documentos = Documento::all();
 
         return view('arquivo.create',[
         'alunos'=>$alunos,
@@ -72,7 +91,8 @@ class ArquivoController extends Controller
                  $arquivo = Arquivo::create([
                      'aluno_id' => $request->aluno_id,
                      'documento_id' => $request->documento_id,
-                     'foto' => $fotoURL]);
+                     'foto' => $fotoURL,
+                     'observacao'=> $request->observacao]);
 
                   return redirect()->route('arquivo.index')->with('success','Imagem inserida no cadastro com sucesso');
               }
@@ -95,8 +115,10 @@ class ArquivoController extends Controller
     }
 
 
-    public function show(Arquivo $arquivo)
+    public function show($arquivo)
     {
+        $arquivoEncontrado = Arquivo::find($arquivo);
+        return view('arquivo.show', compact('arquivoEncontrado'));
 
     }
 
