@@ -9,7 +9,7 @@ class Arquivo extends Model
 {
     use HasFactory;
     protected $table = 'arquivos';
-    protected $fillable = ['aluno_id','documento_id','foto'];
+    protected $fillable = ['aluno_id','documento_id','foto', 'observacao'];
 
     public function aluno(){
         return $this->belongsTo(Aluno::class);

@@ -6,7 +6,7 @@
 <div class="row">
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title" style="color:rgb(12, 43, 197)">INSERIR NOVO ALUNO</h5></br>
+        <h5 class="card-title" style="color:rgb(12, 43, 197)">INSERIR NOVO FUNCIONÁRIO</h5></br>
       <h6 class="card-subtitle mb-2 text-muted">
       <p class="card-text">
         <div>
@@ -17,17 +17,17 @@
                 <div class="row">
                     <div class="col-md-2">
                         <input class="form-control" type="text"
-                        name="codigo" id="codigo" value="{{ old('codigo') }}" placeholder="informe o código" data-toggle="tooltip" data-placement="top" title="código do aluno" >
+                        name="codigo" id="codigo" value="{{ old('codigo') }}" placeholder="informe o código" data-toggle="tooltip" data-placement="top" title="código do funciobnário" >
                    </br>
                     </div>
                     <div class="col-md-5">
                         <input class="form-control" type="text"
-                        name="nome" id="nome" value="{{ old('nome') }}" placeholder="informe o nome" data-toggle="tooltip" data-placement="top" title="nome do aluno" >
+                        name="nome" id="nome" value="{{ old('nome') }}" placeholder="informe o nome" data-toggle="tooltip" data-placement="top" title="nome completo do funciobário" >
                    </br>
                     </div>
                     <div class="col-md-5">
                         <input class="form-control" type="email"
-                        name="email" id="email" value="{{ old('email') }}" placeholder="informe o email" data-toggle="tooltip" data-placement="top" title="email do aluno" >
+                        name="email" id="email" value="{{ old('email') }}" placeholder="informe o email" data-toggle="tooltip" data-placement="top" title="email do funcionário" >
                    </br>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
        <div class="row">
         <div class="col-md-2">
             <input class="form-control" type="text"
-            name="celular" id="celular" value="{{ old('celular') }}" placeholder="informe o celular" data-toggle="tooltip" data-placement="top" title="celular do aluno" >
+            name="celular" id="celular" value="{{ old('celular') }}" placeholder="informe o celular" data-toggle="tooltip" data-placement="top" title="celular do funcionário" >
           </br>
         </div>
         <div class="col-md-5">

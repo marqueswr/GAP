@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\ArquivoController;
 use App\Http\Controllers\DocumentoController;
@@ -26,9 +27,13 @@ Route::delete('/aluno-destroy/{aluno}', [AlunoController::class, 'destroy'])->na
 
 
 Route::get('/arquivo-index',[ArquivoController::class,'index'])->name('arquivo.index');
+Route::get('/arquivo-index-filtrado',[ArquivoController::class,'filtrado'])->name('arquivo.index.filtrado');
 Route::get('/arquivo-create/{parametro?}',[ArquivoController::class,'create'])->name('arquivo.create');
 Route::get('/arquivo-show/{arquivo}',[ArquivoController::class,'show'])->name('arquivo.show');
 Route::post('/arquivo-store',[ArquivoController::class,'store'])->name('arquivo.store');
 Route::get('/arquivo-edit/{arquivo}', [ArquivoController::class, 'edit'])->name('arquivo.edit');
 Route::put('/arquivo-update/{arquivo}', [ArquivoController::class, 'update'])->name('arquivo.update');
 Route::delete('/arquivo-destroy/{arquivo}', [ArquivoController::class, 'destroy'])->name('arquivo.destroy');
+
+Route::get('/pdf',[PdfController::class,'geraPdf'])->name('pdf');
+

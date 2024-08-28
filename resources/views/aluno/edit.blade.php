@@ -6,7 +6,7 @@
 <div class="row">
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title" style="color:rgb(12, 43, 197)">ALTERAR DADOS DE ALUNO</h5></br>
+        <h5 class="card-title" style="color:rgb(12, 43, 197)">ALTERAR DADOS DE FUNCIONÁRIO</h5></br>
       <h6 class="card-subtitle mb-2 text-muted">
       <p class="card-text">
         <div>

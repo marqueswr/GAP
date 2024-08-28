@@ -5,7 +5,7 @@
 <div class="row">
     <div class="card">
     <div class="card-body">
-      <h5 class="card-title" style="color:rgb(12, 43, 197)">LISTA DE ALUNOS CADASTRADOS</h5>
+      <h5 class="card-title" style="color:rgb(12, 43, 197)">LISTA DE FUNCIONÁRIOS CADASTRADOS</h5>
       <h6 class="card-subtitle mb-2 text-muted">
       </br>
         <div class="navbar-search-block">
