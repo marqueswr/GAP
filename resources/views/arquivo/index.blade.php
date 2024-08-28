@@ -15,11 +15,8 @@
 
         <div class="col-md-2">
             <form  action="{{ route('arquivo.index') }}">
-<<<<<<< HEAD
-            <input class="form-control" type="text" name="parametro" id="parametro" placeholder="informe o nome" data-toggle="tooltip" data-placement="top" title="parte do nome do aluno" >
-=======
+
             <input class="form-control" type="text" name="parametro" id="parametro" placeholder="informe o nome" data-toggle="tooltip" data-placement="top" title="parte do nome da pessoa" >
->>>>>>> b2bbc5ecfcf23dd0582453122bad61a7a3c3ff75
         </div>
 
          <div class="col-md-2">
@@ -30,11 +27,8 @@
         <div class="col-md-4">
             <form  action="{{ route('arquivo.index.filtrado') }}">
             <select  name="aluno_id" id="aluno_id" class="form-control">
-<<<<<<< HEAD
-                <option value="">-- Selecione o aluno --</option>
-=======
+
                 <option value="">-- Selecione a pessoa --</option>
->>>>>>> b2bbc5ecfcf23dd0582453122bad61a7a3c3ff75
                 @foreach ($alunos as $item)
                 <option value="{{ $item->id }}">
                    {{$item->nome}}

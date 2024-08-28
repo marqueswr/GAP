@@ -5,11 +5,7 @@
 <div class="row">
     <div class="card">
     <div class="card-body">
-<<<<<<< HEAD
-      <h5 class="card-title" style="color:rgb(12, 43, 197)">LISTA DE FUNCIONÁRIOS CADASTRADOS</h5>
-=======
       <h5 class="card-title" style="color:rgb(12, 43, 197)">LISTA DE PESSOAS CADASTRADAS</h5>
->>>>>>> b2bbc5ecfcf23dd0582453122bad61a7a3c3ff75
       <h6 class="card-subtitle mb-2 text-muted">
       </br>
         <div class="navbar-search-block">

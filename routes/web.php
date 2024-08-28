@@ -34,9 +34,3 @@ Route::post('/arquivo-store',[ArquivoController::class,'store'])->name('arquivo.
 Route::get('/arquivo-edit/{arquivo}', [ArquivoController::class, 'edit'])->name('arquivo.edit');
 Route::put('/arquivo-update/{arquivo}', [ArquivoController::class, 'update'])->name('arquivo.update');
 Route::delete('/arquivo-destroy/{arquivo}', [ArquivoController::class, 'destroy'])->name('arquivo.destroy');
-
-<<<<<<< HEAD
-Route::get('/pdf',[PdfController::class,'geraPdf'])->name('pdf');
-
-=======
->>>>>>> b2bbc5ecfcf23dd0582453122bad61a7a3c3ff75
