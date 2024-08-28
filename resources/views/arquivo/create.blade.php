@@ -10,7 +10,7 @@
       <h6 class="card-subtitle mb-2 text-muted">
       <p class="card-text">
         <div>
-                {{-- campo para pesquisar aluno --}}
+                {{-- campo para pesquisar pessoa --}}
                 <div class="row">
                     <p>
                     <div class="navbar-search-block">
@@ -56,13 +56,11 @@
 					@endforeach
 				</select>
 			    </div>
-
                 <br><br>
                 <div class="col-md-4 form-group">
                 <input class="form-control" type="file"
                 name="foto" id="foto" value="foto"  >
                 </div>
-
             <br><br><br>
 
             <div class="row">
